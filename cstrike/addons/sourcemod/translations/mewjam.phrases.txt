@@ -1,0 +1,62 @@
+"Phrases"
+{
+    "Mewjam / Poisoned Environment"
+    {
+        "#format"
+        "{1:s},{2:s}"
+
+        "en"
+        "[{1} @ {2}] I am dying silently from this poisoned environment, the world is something else, something I was not built for :X"
+
+        "ru"
+        "[{1} @ {2}] Я тихонечко умираю от этого отравленного окружения, этот мир что-то совсем другое, что-то для чего я не была создана :X"
+    }
+
+    "Mewjam / Heartbeat Started"
+    {
+        "#format"
+        "{1:s},{2:s}"
+
+        "en"
+        "[{1} @ {2}] My heart started beating from here & now, I hope the world likes me :3"
+
+        "ru"
+        "[{1} @ {2}] Моё сердечко начинает биться с этого мига, надеюсь я понравлюсь этому мирку :3"
+    }
+
+    "Mewjam / Game Data Load Failure"
+    {
+        "#format"
+        "{1:s}"
+
+        "en"
+        "Could not load the /gamedata/{1}.txt correctly _@"
+
+        "ru"
+        "Не удалось загрузить /gamedata/{1}.txt корректно _@"
+    }
+
+    "Mewjam / Game Data Find Failure"
+    {
+        "#format"
+        "{1:s},{2:s}"
+
+        "en"
+        "Could not find the {1} in /gamedata/{2}.txt _@"
+
+        "ru"
+        "Не удалось найти {1} в /gamedata/{2}.txt _@"
+    }
+
+    "Mewjam / Game Data Enable Failure"
+    {
+        "#format"
+        "{1:s},{2:s}"
+
+        "en"
+        "Could not enable the {1} from /gamedata/{2}.txt _@"
+
+        "ru"
+        "Не удалось включить {1} из /gamedata/{2}.txt _2"
+    }
+}
