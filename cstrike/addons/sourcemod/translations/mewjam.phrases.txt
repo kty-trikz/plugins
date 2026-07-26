@@ -182,4 +182,28 @@
         "ru"
         "{1}Вы {2}выключили {3}урон от утопления"
     }
+
+    "Mewjam / Fall Punch Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}fall punch"
+
+        "ru"
+        "{1}Вы {2}включили {3}тряску от падаения"
+    }
+
+    "Mewjam / Fall Punch Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}fall punch"
+
+        "ru"
+        "{1}Вы {2}выключили {3}тряску от падаения"
+    }
 }
