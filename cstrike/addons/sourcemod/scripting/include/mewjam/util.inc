@@ -7,7 +7,7 @@
 
 stock bool Mewjam_IsFlag(int val, int flag)
 {
-    return !!(val & flag);
+    return view_as<bool>(val & flag);
 }
 
 stock bool Mewjam_IsAlivePlayerInGame(int client)

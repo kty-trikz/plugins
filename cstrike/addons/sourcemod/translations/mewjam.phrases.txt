@@ -59,4 +59,127 @@
         "ru"
         "Не удалось включить {1} из /gamedata/{2}.txt _2"
     }
+
+    "Mewjam / Bullet Damage Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}bullet damage"
+
+        "ru"
+        "{1}Вы {2}включили {3}урон от пуль"
+    }
+
+    "Mewjam / Bullet Damage Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}bullet damage"
+
+        "ru"
+        "{1}Вы {2}выключили {3}урон от пуль"
+    }
+
+    "Mewjam / Burn Damage Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}burn damage"
+
+        "ru"
+        "{1}Вы {2}включили {3}урон от огня"
+    }
+
+    "Mewjam / Burn Damage Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}burn damage"
+
+        "ru"
+        "{1}Вы {2}выключили {3}урон от огня"
+    }
+
+
+    "Mewjam / Fall Damage Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}fall damage"
+
+        "ru"
+        "{1}Вы {2}включили {3}урон от падения"
+    }
+
+    "Mewjam / Fall Damage Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}fall damage"
+
+        "ru"
+        "{1}Вы {2}выключили {3}урон от падения"
+    }
+
+
+    "Mewjam / Blast Damage Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}blast damage"
+
+        "ru"
+        "{1}Вы {2}включили {3}урон от взрывов"
+    }
+
+    "Mewjam / Blast Damage Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}blast damage"
+
+        "ru"
+        "{1}Вы {2}выключили {3}урон от взрывов"
+    }
+
+
+    "Mewjam / Drown Damage Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}drown damage"
+
+        "ru"
+        "{1}Вы {2}включили {3}урон от утопления"
+    }
+
+    "Mewjam / Drown Damage Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}drown damage"
+
+        "ru"
+        "{1}Вы {2}выключили {3}урон от утопления"
+    }
 }

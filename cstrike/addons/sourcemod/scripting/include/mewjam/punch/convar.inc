@@ -5,25 +5,6 @@
 
 #include <mewjam/punch/info>
 
-#if defined MEWJAM_DAMAGE_CONVAR_FILENAME
-#error `MEWJAM_DAMAGE_CONVAR_FILENAME` is already defined _X
-#endif
-#if defined MEWJAM_DAMAGE_CONVAR_NAME_PREFIX
-#error `MEWJAM_DAMAGE_CONVAR_NAME_PREFIX` is already defined _X
-#endif
-#if defined MEWJAM_DAMAGE_CONVAR_NAME_IMPL
-#error `MEWJAM_DAMAGE_CONVAR_NAME_IMPL` is already defined _X
-#endif
-#if defined MEWJAM_DAMAGE_CONVAR_DESCRIPTION_IMPL
-#error `MEWJAM_DAMAGE_CONVAR_DESCRIPTION_IMPL` is already defined _X
-#endif
-#if defined MEWJAM_DAMAGE_CONVAR_NAME_ENABLED
-#error `MEWJAM_DAMAGE_CONVAR_NAME_ENABLED` is already defined _X
-#endif
-#if defined MEWJAM_DAMAGE_CONVAR_DESCRIPTION_ENABLED
-#error `MEWJAM_DAMAGE_CONVAR_DESCRIPTION_ENABLED` is already defined _X
-#endif
-
 #define MEWJAM_PUNCH_CONVAR_FILENAME MEWJAM_PUNCH_NAME_LOWER
 #define MEWJAM_PUNCH_CONVAR_NAME_PREFIX MEWJAM_PUNCH_NAME_LOWER ... "_"
 

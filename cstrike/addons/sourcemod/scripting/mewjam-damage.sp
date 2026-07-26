@@ -5,6 +5,7 @@
 #include <mewjam/environ>
 #include <mewjam/phrases>
 #include <mewjam/menu>
+#include <mewjam/chat>
 
 #include <mewjam/damage/info>
 #include <mewjam/damage/convar>
@@ -235,6 +236,15 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         }
         g_iDamageBulletEnabled[client] = view_as<int>(!(iDamageBullet == 1));
         g_ckDamageBulletEnabled.SetInt(client, g_iDamageBulletEnabled[client]);
+
+        if (view_as<bool>(g_iDamageBulletEnabled[client]))
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BULLET_DAMAGE_ENABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
+        else
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BULLET_DAMAGE_DISABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
     }
     else if (StrEqual(szInfo, "burn"))
     {
@@ -245,6 +255,15 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         }
         g_iDamageBurnEnabled[client] = view_as<int>(!(iDamageBurn == 1));
         g_ckDamageBurnEnabled.SetInt(client, g_iDamageBurnEnabled[client]);
+
+        if (view_as<bool>(g_iDamageBurnEnabled[client]))
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BURN_DAMAGE_ENABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
+        else
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BURN_DAMAGE_DISABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
     }
     else if (StrEqual(szInfo, "fall"))
     {
@@ -255,6 +274,15 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         }
         g_iDamageFallEnabled[client] = view_as<int>(!(iDamageFall == 1));
         g_ckDamageFallEnabled.SetInt(client, g_iDamageFallEnabled[client]);
+
+        if (view_as<bool>(g_iDamageFallEnabled[client]))
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_FALL_DAMAGE_ENABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
+        else
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_FALL_DAMAGE_DISABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
     }
     else if (StrEqual(szInfo, "blast"))
     {
@@ -265,6 +293,15 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         }
         g_iDamageBlastEnabled[client] = view_as<int>(!(iDamageBlast == 1));
         g_ckDamageBlastEnabled.SetInt(client, g_iDamageBlastEnabled[client]);
+
+        if (view_as<bool>(g_iDamageBlastEnabled[client]))
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BLAST_DAMAGE_ENABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
+        else
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_BLAST_DAMAGE_DISABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
     }
     else if (StrEqual(szInfo, "drown"))
     {
@@ -275,6 +312,15 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         }
         g_iDamageDrownEnabled[client] = view_as<int>(!(iDamageDrown == 1));
         g_ckDamageDrownEnabled.SetInt(client, g_iDamageDrownEnabled[client]);
+
+        if (view_as<bool>(g_iDamageDrownEnabled[client]))
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_DROWN_DAMAGE_ENABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
+        else
+        {
+            Mewjam_SayText2(client, "%s%T", MEWJAM_CHAT_PREFIX, MEWJAM_MESSAGE_DROWN_DAMAGE_DISABLE, client, MEWJAM_MESSAGE_TYPE_DAMAGE_PARAMS);
+        }
     }
 
     Menu_Damage(client);

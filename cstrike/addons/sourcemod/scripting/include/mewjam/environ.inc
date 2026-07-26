@@ -6,9 +6,6 @@
 #include <mewjam/phrases>
 #include <mewjam/info>
 
-#if defined MEWJAM_SERVER_MESSAGE_SIZE
-#error `MEWJAM_SERVER_MESSAGE_SIZE` is already defined _X
-#endif
 #define MEWJAM_SERVER_MESSAGE_SIZE 1024
 
 stock void Mewjam_OnInvalidEnviron(const char[] plugin)
