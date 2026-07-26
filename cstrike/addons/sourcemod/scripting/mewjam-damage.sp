@@ -6,6 +6,7 @@
 #include <mewjam/phrases>
 #include <mewjam/menu>
 #include <mewjam/chat>
+#include <mewjam/util>
 
 #include <mewjam/damage/info>
 #include <mewjam/damage/convar>
@@ -147,12 +148,22 @@ static Action Hook_OnTakeDamage(int client, int& attacker, int& inflictor, float
 
 static Action Command_Damage(int client, int argc)
 {
+    if (!Mewjam_IsClientInGame(client))
+    {
+        return Plugin_Handled;
+    }
+
     Menu_Damage(client);
     return Plugin_Handled;
 }
 
 static void Menu_Damage(int client)
 {
+    if (!Mewjam_IsClientInGame(client))
+    {
+        return;
+    }
+
     bool bBulletDamage = g_iDamageBulletEnabled[client] == 1;
     if (g_iDamageBulletEnabled[client] == MEWJAM_DAMAGE_COOKIE_UNKNOWN_BULLET_ENABLED)
     {
@@ -216,6 +227,10 @@ static void MenuHandler_Damage(Menu menu, MenuAction action, int client, int ind
         return;
     }
     if (action != MenuAction_Select)
+    {
+        return;
+    }
+    if (!Mewjam_IsClientInGame(client))
     {
         return;
     }

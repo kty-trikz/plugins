@@ -108,6 +108,11 @@ static void Frame_ResetViewPunch(int serial)
 
 static Action Command_Punch(int client, int argc)
 {
+    if (!Mewjam_IsClientInGame(client))
+    {
+        return Plugin_Handled;
+    }
+
     int iPunchFall = g_iPunchFallEnabled[client];
     if (iPunchFall == MEWJAM_PUNCH_COOKIE_UNKNOWN_FALL_ENABLED)
     {

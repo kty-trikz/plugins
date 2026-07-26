@@ -6,6 +6,8 @@
 #include <string>
 #include <usermessages>
 
+#include <mewjam/util>
+
 #define MEWJAM_CHAT_TAG ">^<"
 #define MEWJAM_CHAT_SEPARATOR "|"
 
@@ -19,6 +21,11 @@
 
 stock bool Mewjam_SayText2(int client, const char[] szFormat, any ...)
 {
+    if (!Mewjam_IsClientInGame(client))
+    {
+        return false;
+    }
+
     char szMessage[256];
     VFormat(szMessage, sizeof(szMessage), szFormat, 3);
 

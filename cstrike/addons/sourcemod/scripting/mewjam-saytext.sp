@@ -4,6 +4,7 @@
 #include <mewjam/environ>
 #include <mewjam/phrases>
 #include <mewjam/chat>
+#include <mewjam/util>
 
 #include <mewjam/saytext/info>
 
@@ -28,6 +29,10 @@ public void OnPluginStart()
 
 static Action Command_SayText(int client, int argc)
 {
+    if (!Mewjam_IsClientInGame(client))
+    {
+        return Plugin_Handled;
+    }
     if (argc < 1)
     {
         return Plugin_Handled;
