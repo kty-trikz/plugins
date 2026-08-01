@@ -206,4 +206,52 @@
         "ru"
         "{1}Вы {2}выключили {3}тряску от падаения"
     }
+
+    "Mewjam / Macro Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}jump throw macro"
+
+        "ru"
+        "{1}Вы {2}включили {3}макрос на бросок с прыжком"
+    }
+
+    "Mewjam / Macro Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}jump throw macro"
+
+        "ru"
+        "{1}Вы {2}выключили {3}макрос на бросок с прыжком"
+    }
+
+    "Mewjam / NJ Macro Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}no-jump throw macro"
+
+        "ru"
+        "{1}Вы {2}включили {3}макрос на бросок без прыжка"
+    }
+
+    "Mewjam / NJ Macro Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}no-jump throw macro"
+
+        "ru"
+        "{1}Вы {2}выключили {3}макрос на бросок без прыжка"
+    }
 }
