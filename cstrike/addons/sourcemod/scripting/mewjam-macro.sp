@@ -30,7 +30,6 @@ public Plugin myinfo = {
 
 bool g_bLateLoaded = false;
 
-Cookie g_ckTickDelay;
 Cookie g_ckNjTickDelay;
 Cookie g_ckMacroEnabled;
 Cookie g_ckNjMacroEnabled;
@@ -236,7 +235,6 @@ static void Mewjam_CreateCommands()
 
 static void Mewjam_CreateCookies()
 {
-    g_ckTickDelay = RegClientCookie(MEWJAM_MACRO_COOKIE_NAME_TICK_DELAY, MEWJAM_MACRO_COOKIE_DESCRIPTION_TICK_DELAY, CookieAccess_Protected);
     g_ckMacroEnabled = RegClientCookie(MEWJAM_MACRO_COOKIE_NAME_MACRO_ENABLED, MEWJAM_MACRO_COOKIE_DESCRIPTION_MACRO_ENABLED, CookieAccess_Protected);
     g_ckNjTickDelay = RegClientCookie(MEWJAM_MACRO_COOKIE_NAME_NJ_TICK_DELAY, MEWJAM_MACRO_COOKIE_DESCRIPTION_NJ_TICK_DELAY, CookieAccess_Protected);
     g_ckNjMacroEnabled = RegClientCookie(MEWJAM_MACRO_COOKIE_NAME_NJ_MACRO_ENABLED, MEWJAM_MACRO_COOKIE_DESCRIPTION_NJ_MACRO_ENABLED, CookieAccess_Protected);
