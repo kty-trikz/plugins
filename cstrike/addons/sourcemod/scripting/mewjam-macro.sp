@@ -38,9 +38,7 @@ Cookie g_ckNjMacroEnabled;
 bool g_bMacroEnabled[MAXPLAYERS + 1];
 bool g_bNjMacroEnabled[MAXPLAYERS + 1];
 
-int g_iTickDelay[MAXPLAYERS + 1];
 int g_iTickPull[MAXPLAYERS + 1];
-int g_iTickThrow[MAXPLAYERS + 1];
 
 int g_iNjTickDelay[MAXPLAYERS + 1];
 int g_iNjTickPull[MAXPLAYERS + 1];
@@ -82,7 +80,6 @@ public void OnClientPutInServer(int client)
 
     g_iTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
     g_iNjTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
-    g_iTickThrow[client] = _MEWJAM_MACRO_UNKNOWN_TICK_THROW;
 }
 
 public void OnClientCookiesCached(int client)
@@ -140,10 +137,11 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
     if (g_bMacroEnabled[client])
     {
         int flags = GetEntProp(client, Prop_Send, MEWJAM_PROP_M_FFLAGS);
+        int throwTick = RoundToCeil(GetEntPropFloat(cweapon, Prop_Send, MEWJAM_PROP_M_FTHROWTIME) / GetTickInterval() - 0.001);
 
         if (Mewjam_IsFlag(flags, MEWJAM_FLAG_ON_GROUND) && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK2) && nextattack <= tickbase)
         {
-            if (g_iTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL && g_iTickThrow[client] == _MEWJAM_MACRO_UNKNOWN_TICK_THROW)
+            if (g_iTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL && throwTick <= 0)
             {
                 buttons |= MEWJAM_BUTTON_IN_ATTACK;
                 buttons &= ~MEWJAM_BUTTON_IN_ATTACK2;
@@ -156,24 +154,18 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
             if (g_iTickPull[client] + 1 <= tickbase)
             {
                 buttons &= ~MEWJAM_BUTTON_IN_ATTACK;
-                g_iTickThrow[client] = tickbase;
                 g_iTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
             }
         }
 
-        if (g_iTickThrow[client] != _MEWJAM_MACRO_UNKNOWN_TICK_THROW)
+        if (throwTick > 0 && throwTick <= tickbase)
         {
-            if (g_iTickThrow[client] + g_iTickDelay[client] <= tickbase)
-            {
-                buttons |= MEWJAM_BUTTON_IN_JUMP;
-                g_iTickThrow[client] = _MEWJAM_MACRO_UNKNOWN_TICK_THROW;
-            }
+            buttons |= MEWJAM_BUTTON_IN_JUMP;
         }
     }
     else
     {
         g_iTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
-        g_iTickThrow[client] = _MEWJAM_MACRO_UNKNOWN_TICK_THROW;
     }
 
     return Plugin_Continue;
@@ -225,7 +217,6 @@ static Action Command_NjMacro(int client, int argc)
 
 static void Mewjam_InitStateVars(int client)
 {
-    g_iTickDelay[client] = g_ckTickDelay.GetInt(client, MEWJAM_MACRO_COOKIE_DEFAULT_TICK_DELAY);
     g_bMacroEnabled[client] = view_as<bool>(g_ckMacroEnabled.GetInt(client, MEWJAM_MACRO_COOKIE_DEFAULT_MACRO_ENABLED));
     g_iNjTickDelay[client] = g_ckNjTickDelay.GetInt(client, MEWJAM_MACRO_COOKIE_DEFAULT_NJ_TICK_DELAY);
     g_bNjMacroEnabled[client] = view_as<bool>(g_ckNjMacroEnabled.GetInt(client, MEWJAM_MACRO_COOKIE_DEFAULT_NJ_MACRO_ENABLED));

@@ -10,3 +10,5 @@
 #define MEWJAM_PROP_M_HACTIVEWEAPON "m_hActiveWeapon"
 #define MEWJAM_PROP_M_NTICKBASE "m_nTickBase"
 #define MEWJAM_PROP_M_FFLAGS "m_fFlags"
+#define MEWJAM_PROP_M_HMYWEAPONS "m_hMyWeapons"
+#define MEWJAM_PROP_M_FTHROWTIME "m_fThrowTime"
