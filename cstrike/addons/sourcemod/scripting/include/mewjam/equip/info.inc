@@ -5,8 +5,8 @@
 
 #include <mewjam/version>
 
-#define MEWJAM_EQUIP_NAME "Mewjam/Macro"
-#define MEWJAM_EQUIP_NAME_LOWER "mewjam_macro"
+#define MEWJAM_EQUIP_NAME "Mewjam/Equip"
+#define MEWJAM_EQUIP_NAME_LOWER "mewjam_equip"
 #define MEWJAM_EQUIP_AUTHOR "Mee;w"
 #define MEWJAM_EQUIP_DESCRIPTION "Equipment of flashbangs"
 #define MEWJAM_EQUIP_URL "https://github.com/kty-trikz/plugins"
