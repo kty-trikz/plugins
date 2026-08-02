@@ -109,9 +109,9 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
     int tickbase = GetEntProp(client, Prop_Send, MEWJAM_PROP_M_NTICKBASE);
     int nextattack = RoundToCeil(GetEntPropFloat(client, Prop_Send, MEWJAM_PROP_M_FLNEXTATTACK) / GetTickInterval());
 
-    if (g_bNjMacroEnabled[client])
+    if (g_bNjMacroEnabled[client] && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK))
     {
-        if (Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK) && nextattack <= tickbase)
+        if (nextattack <= tickbase)
         {
             if (g_iNjTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL)
             {
@@ -133,12 +133,12 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
         g_iNjTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
     }
 
-    if (g_bMacroEnabled[client])
+    if (g_bMacroEnabled[client] && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK2))
     {
         int flags = GetEntProp(client, Prop_Send, MEWJAM_PROP_M_FFLAGS);
         int throwTick = RoundToCeil(GetEntPropFloat(cweapon, Prop_Send, MEWJAM_PROP_M_FTHROWTIME) / GetTickInterval() - 0.001);
 
-        if (Mewjam_IsFlag(flags, MEWJAM_FLAG_ON_GROUND) && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK2) && nextattack <= tickbase)
+        if (Mewjam_IsFlag(flags, MEWJAM_FLAG_ON_GROUND) && nextattack <= tickbase)
         {
             if (g_iTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL && throwTick <= 0)
             {
