@@ -254,4 +254,61 @@
         "ru"
         "{1}Вы {2}выключили {3}макрос на бросок без прыжка"
     }
+
+    "Mewjam / Noclip Turn Alive Error"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You should be {2}alive {3}to turn noclip"
+
+        "ru"
+        "{1}Вы должны быть {2}живыми {3}для включения ноуклипа"
+    }
+
+    "Mewjam / Noclip Shut Alive Error"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You should be {2}alive {3}to shut noclip"
+
+        "ru"
+        "{1}Вы должны быть {2}живыми {3}для выключения ноуклипа"
+    }
+
+    "Mewjam / Noclip Enable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}enabled {3}noclip"
+
+        "ru"
+        "{1}Вы {2}включили {3}ноуклип"
+    }
+
+    "Mewjam / Noclip Disable"
+    {
+        "#format"
+        "{1:s},{2:s},{3:s}"
+
+        "en"
+        "{1}You have {2}disabled {3}noclip"
+
+        "ru"
+        "{1}Вы {2}выключили {3}ноуклип"
+    }
+
+    "Mewjam / Noclip Set Speed"
+    {
+        "#format"
+        "{1:s},{2:s},{3:0.f},{4:s}"
+
+        "en"
+        "{1}You have set {2}{3} {4}u/s as your noclip speed"
+    }
 }

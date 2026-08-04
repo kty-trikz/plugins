@@ -1,0 +1,15 @@
+#if defined _mewjam_noclip_cookie_included_
+#endinput
+#endif
+#define _mewjam_noclip_cookie_included_
+
+#include <mewjam/noclip/info>
+
+#define MEWJAM_NOCLIP_COOKIE_NAME_PREFIX MEWJAM_NOCLIP_NAME_LOWER ... "_"
+
+#define MEWJAM_NOCLIP_COOKIE_NAME_IMPL(%1) MEWJAM_NOCLIP_COOKIE_NAME_PREFIX ... %1
+#define MEWJAM_NOCLIP_COOKIE_DESCRIPTION_IMPL(%1) "[" ... MEWJAM_NOCLIP_NAME ... " @ " ... MEWJAM_NOCLIP_AUTHOR ... "] " ... %1
+
+#define MEWJAM_NOCLIP_COOKIE_NAME_SPEED MEWJAM_NOCLIP_COOKIE_NAME_IMPL("speed")
+#define MEWJAM_NOCLIP_COOKIE_DESCRIPTION_SPEED MEWJAM_NOCLIP_COOKIE_DESCRIPTION_IMPL("Noclip Speed")
+#define MEWJAM_NOCLIP_COOKIE_DEFAULT_SPEED 4.882812

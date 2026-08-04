@@ -1,0 +1,32 @@
+"Games"
+{
+    "#default"
+    {
+        "Keys"
+        {
+            "CGameMovement::player" "4"
+            "CBaseEntity::m_RefEHandle" "12"
+        }
+
+        "Offsets"
+        {
+            "m_angRotation"
+            {
+                "class" "CBaseEntity"
+                "prop" "m_angRotation"
+            }
+        }
+    }
+
+    "cstrike"
+    {
+        "Signatures"
+        {
+            "CGameMovement::FullNoClipMove"
+            {
+                "library" "server"
+                "linux" "@_ZN13CGameMovement14FullNoClipMoveEff"
+            }
+        }
+    }
+}
