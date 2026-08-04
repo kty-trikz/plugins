@@ -309,6 +309,9 @@
         "{1:s},{2:s},{3:0.f},{4:s}"
 
         "en"
-        "{1}You have set {2}{3} {4}u/s as your noclip speed"
+        "{1}You have set {2}{3} {4}u/s as noclip speed"
+
+        "ru"
+        "{1}Вы установили {2}{3} {4}ю/с как скорость ноуклипа"
     }
 }
