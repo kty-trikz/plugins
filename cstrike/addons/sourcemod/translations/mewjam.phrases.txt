@@ -306,7 +306,7 @@
     "Mewjam / Noclip Set Speed"
     {
         "#format"
-        "{1:s},{2:s},{3:0.f},{4:s}"
+        "{1:s},{2:s},{3:.0f},{4:s}"
 
         "en"
         "{1}You have set {2}{3} {4}u/s as noclip speed"
