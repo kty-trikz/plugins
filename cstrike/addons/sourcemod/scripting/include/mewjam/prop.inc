@@ -13,3 +13,4 @@
 #define MEWJAM_PROP_M_HMYWEAPONS "m_hMyWeapons"
 #define MEWJAM_PROP_M_FTHROWTIME "m_fThrowTime"
 #define MEWJAM_PROP_M_BDRAWVIEWMODEL "m_bDrawViewmodel"
+#define MEWJAM_PROP_M_NNEXTTHINKTICK "m_nNextThinkTick"

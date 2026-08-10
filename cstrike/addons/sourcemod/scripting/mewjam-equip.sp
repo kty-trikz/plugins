@@ -3,6 +3,7 @@
 #include <sdktools>
 #include <sdkhooks>
 #include <string>
+#include <timers>
 
 #include <mewjam/environ>
 #include <mewjam/phrases>
@@ -71,6 +72,19 @@ public void OnClientCookiesCached(int client)
 {
 }
 
+public void OnEntityCreated(int entity, const char[] className)
+{
+    if (!IsValidEntity(entity))
+    {
+        return;
+    }
+
+    if (StrContains(className, "_projectile") != -1)
+    {
+        SDKHook(entity, SDKHook_SpawnPost, Hook_SpawnPost);
+    }
+}
+
 static void Hook_PreThinkPost(int client)
 {
     if (!Mewjam_IsAlivePlayerInGame(client))
@@ -132,6 +146,27 @@ static Action Hook_NormalSound(int clients[MAXPLAYERS], int& size, char sample[P
     return Plugin_Continue;
 }
 
+static void Hook_SpawnPost(int entity)
+{
+    if (!IsValidEntity(entity))
+    {
+        return;
+    }
+
+    if (!HasEntProp(entity, Prop_Send, MEWJAM_PROP_M_HOWNERENTITY))
+    {
+        return;
+    }
+
+    if (!HasEntProp(entity, Prop_Data, MEWJAM_PROP_M_NNEXTTHINKTICK))
+    {
+        return;
+    }
+
+    RequestFrame(Frame_PreventExplosion, EntIndexToEntRef(entity));
+    CreateTimer(1.6, Timer_RemoveProjectile, EntIndexToEntRef(entity), TIMER_FLAG_NO_MAPCHANGE);
+}
+
 static void Frame_EquipFlashbang(int serial)
 {
     int client = GetClientFromSerial(serial);
@@ -145,6 +180,28 @@ static void Frame_EquipFlashbang(int serial)
 
     g_bSilentKnife[client] = true;
     g_bSilentEquip[client] = true;
+}
+
+static void Frame_PreventExplosion(int ref)
+{
+    int entity = EntRefToEntIndex(ref);
+    if (!IsValidEntity(entity))
+    {
+        return;
+    }
+
+    SetEntProp(entity, Prop_Data, MEWJAM_PROP_M_NNEXTTHINKTICK, 0);
+}
+
+static void Timer_RemoveProjectile(Handle hTimer, int ref)
+{
+    int entity = EntRefToEntIndex(ref);
+    if (!IsValidEntity(entity))
+    {
+        return;
+    }
+
+    RemoveEntity(entity);
 }
 
 static void Mewjam_ValidateEnviron()
