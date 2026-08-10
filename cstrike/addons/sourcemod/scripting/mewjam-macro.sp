@@ -109,9 +109,9 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
     int tickbase = GetEntProp(client, Prop_Send, MEWJAM_PROP_M_NTICKBASE);
     int nextattack = RoundToCeil(GetEntPropFloat(client, Prop_Send, MEWJAM_PROP_M_FLNEXTATTACK) / GetTickInterval());
 
-    if (g_bNjMacroEnabled[client] && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK))
+    if (g_bNjMacroEnabled[client])
     {
-        if (nextattack <= tickbase)
+        if (Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK) && nextattack <= tickbase)
         {
             if (g_iNjTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL)
             {
@@ -133,12 +133,12 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
         g_iNjTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
     }
 
-    if (g_bMacroEnabled[client] && Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK2))
+    if (g_bMacroEnabled[client])
     {
         int flags = GetEntProp(client, Prop_Send, MEWJAM_PROP_M_FFLAGS);
         int throwTick = RoundToCeil(GetEntPropFloat(cweapon, Prop_Send, MEWJAM_PROP_M_FTHROWTIME) / GetTickInterval() - 0.001);
 
-        if (Mewjam_IsFlag(flags, MEWJAM_FLAG_ON_GROUND) && nextattack <= tickbase)
+        if (Mewjam_IsFlag(buttons, MEWJAM_BUTTON_IN_ATTACK2) && Mewjam_IsFlag(flags, MEWJAM_FLAG_ON_GROUND) && nextattack <= tickbase)
         {
             if (g_iTickPull[client] == _MEWJAM_MACRO_UNKNOWN_TICK_PULL && throwTick <= 0)
             {
@@ -153,13 +153,13 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
             if (g_iTickPull[client] + 1 <= tickbase)
             {
                 buttons &= ~MEWJAM_BUTTON_IN_ATTACK;
+            }
+
+            if (throwTick > 0 && throwTick <= tickbase)
+            {
+                buttons |= MEWJAM_BUTTON_IN_JUMP;
                 g_iTickPull[client] = _MEWJAM_MACRO_UNKNOWN_TICK_PULL;
             }
-        }
-
-        if (throwTick > 0 && throwTick <= tickbase)
-        {
-            buttons |= MEWJAM_BUTTON_IN_JUMP;
         }
     }
     else
