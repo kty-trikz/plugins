@@ -25,6 +25,9 @@ public Plugin myinfo = {
 
 bool g_bLateLoaded = false;
 
+bool g_bSilentKnife[MAXPLAYERS + 1];
+bool g_bSilentEquip[MAXPLAYERS + 1];
+
 public APLRes AskPluginLoad2(Handle self, bool late, char[] error, int err_max)
 {
     g_bLateLoaded = late;
@@ -36,6 +39,8 @@ public void OnPluginStart()
     LoadTranslations(MEWJAM_MESSAGE_FILENAME);
 
     Mewjam_ValidateEnviron();
+
+    AddNormalSoundHook(Hook_NormalSound);
 
     if (!g_bLateLoaded)
     {
@@ -56,6 +61,9 @@ public void OnPluginStart()
 
 public void OnClientPutInServer(int client)
 {
+    g_bSilentKnife[client] = false;
+    g_bSilentEquip[client] = false;
+
     SDKHook(client, SDKHook_PreThinkPost, Hook_PreThinkPost);
 }
 
@@ -98,6 +106,32 @@ static void Hook_PreThinkPost(int client)
     RequestFrame(Frame_EquipFlashbang, GetClientSerial(client));
 }
 
+static Action Hook_NormalSound(int clients[MAXPLAYERS], int& size, char sample[PLATFORM_MAX_PATH], int& entity, int& channel, float& volume, int& level, int& pitch, int& flags, char entry[PLATFORM_MAX_PATH], int& seed)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        int client = clients[i];
+        if (!Mewjam_IsPlayerInGame(client))
+        {
+            continue;
+        }
+
+        if (StrEqual(sample, "weapons/knife/knife_deploy1.wav") && g_bSilentKnife[client])
+        {
+            g_bSilentKnife[client] = false;
+            return Plugin_Stop;
+        }
+
+        if (StrEqual(sample, "items/itempickup.wav") && g_bSilentEquip[client])
+        {
+            g_bSilentEquip[client] = false;
+            return Plugin_Stop;
+        }
+    }
+
+    return Plugin_Continue;
+}
+
 static void Frame_EquipFlashbang(int serial)
 {
     int client = GetClientFromSerial(serial);
@@ -108,6 +142,9 @@ static void Frame_EquipFlashbang(int serial)
 
     FakeClientCommand(client, "use weapon_knife");
     FakeClientCommand(client, "use weapon_flashbang");
+
+    g_bSilentKnife[client] = true;
+    g_bSilentEquip[client] = true;
 }
 
 static void Mewjam_ValidateEnviron()
