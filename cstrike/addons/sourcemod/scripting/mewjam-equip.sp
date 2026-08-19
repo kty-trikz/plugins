@@ -178,8 +178,8 @@ static void Frame_EquipFlashbang(int serial)
         return;
     }
 
-    FakeClientCommand(client, "use weapon_knife");
-    FakeClientCommand(client, "use weapon_flashbang");
+    FakeClientCommand(client, "use %s", MEWJAM_CLASSNAME_WEAPON_KNIFE);
+    FakeClientCommand(client, "use %s", MEWJAM_CLASSNAME_WEAPON_FLASHBANG);
 
     g_bSilentKnife[client] = true;
     g_bSilentEquip[client] = true;
