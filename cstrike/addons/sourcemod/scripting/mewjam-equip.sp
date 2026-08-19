@@ -10,8 +10,10 @@
 #include <mewjam/prop>
 #include <mewjam/classname>
 #include <mewjam/util>
+#include <mewjam/event>
 
 #include <mewjam/equip/info>
+#include <mewjam/equip/util>
 
 #pragma newdecls required
 #pragma semicolon 1
@@ -40,6 +42,7 @@ public void OnPluginStart()
     LoadTranslations(MEWJAM_MESSAGE_FILENAME);
 
     Mewjam_ValidateEnviron();
+    Mewjam_CreateCommands();
 
     AddNormalSoundHook(Hook_NormalSound);
 
@@ -204,8 +207,48 @@ static void Timer_RemoveProjectile(Handle hTimer, int ref)
     RemoveEntity(entity);
 }
 
+static Action Command_Flashbang(int client, int argc)
+{
+    Mewjam_GiveWeapon(client, MEWJAM_CLASSNAME_WEAPON_FLASHBANG);
+    return Plugin_Handled;
+}
+
+static Action Command_Scout(int client, int argc)
+{
+    Mewjam_GiveWeapon(client, MEWJAM_CLASSNAME_WEAPON_SCOUT);
+    return Plugin_Handled;
+}
+
+static Action Command_Usp(int client, int argc)
+{
+    Mewjam_GiveWeapon(client, MEWJAM_CLASSNAME_WEAPON_USP);
+    return Plugin_Handled;
+}
+
+static Action Command_Glock(int client, int argc)
+{
+    Mewjam_GiveWeapon(client, MEWJAM_CLASSNAME_WEAPON_GLOCK);
+    return Plugin_Handled;
+}
+
+static Action Command_Knife(int client, int argc)
+{
+    Mewjam_GiveWeapon(client, MEWJAM_CLASSNAME_WEAPON_KNIFE);
+    return Plugin_Handled;
+}
+
 static void Mewjam_ValidateEnviron()
 {
     Mewjam_OnInvalidEnviron(MEWJAM_EQUIP_NAME);
     Mewjam_OnValidEnviron(MEWJAM_EQUIP_NAME);
+}
+
+static void Mewjam_CreateCommands()
+{
+    RegConsoleCmd("sm_flashbang", Command_Flashbang);
+    RegConsoleCmd("sm_flash", Command_Flashbang);
+    RegConsoleCmd("sm_scout", Command_Scout);
+    RegConsoleCmd("sm_usp", Command_Usp);
+    RegConsoleCmd("sm_glock", Command_Glock);
+    RegConsoleCmd("sm_knife", Command_Knife);
 }

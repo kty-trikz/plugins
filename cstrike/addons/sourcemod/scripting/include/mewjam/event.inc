@@ -5,5 +5,6 @@
 
 #define MEWJAM_EVENT_PLAYER_JUMP "player_jump"
 #define MEWJAM_EVENT_WEAPON_FIRE "weapon_fire"
+#define MEWJAM_EVENT_PLAYER_SPAWN "player_spawn"
 
 #define MEWJAM_EVENT_WEAPON_FLASHBANG "flashbang"
