@@ -40,6 +40,6 @@ stock bool Mewjam_SayText2(int client, const char[] szFormat, any ...)
     bfMsg.WriteByte(1); // Sound
     bfMsg.WriteString(szMessage);
 
-    EndMessage()
+    EndMessage();
     return true;
 }
