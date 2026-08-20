@@ -6,5 +6,6 @@
 
 *.sp linguist-language=SourcePawn
 *.inc linguist-language=SourcePawn
+*.kv linguist-language=Text
 
 .vscode/** linguist-vendored=true
