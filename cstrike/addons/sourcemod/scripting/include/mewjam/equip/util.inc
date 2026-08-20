@@ -5,9 +5,9 @@
 
 #include <sourcemod>
 #include <string>
+#include <adt_trie>
 
 #include <mewjam/util>
-#include <mewjam/classname>
 
 stock void Mewjam_GiveWeapon(int client, const char[] classname)
 {
@@ -16,7 +16,7 @@ stock void Mewjam_GiveWeapon(int client, const char[] classname)
         return;
     }
 
-    int slot = Mewjam_WeaponSlot(classname);
+    int slot = Mewjam_WeaponSlot(null, classname);
     if (slot == -1)
     {
         return;
@@ -31,37 +31,41 @@ stock void Mewjam_GiveWeapon(int client, const char[] classname)
             break;
         }
 
-        if (RemovePlayerItem(client, weapon))
+        if (!RemovePlayerItem(client, weapon))
         {
-            AcceptEntityInput(weapon, "kill");
+            continue;
+        }
+
+        if (IsValidEntity(weapon))
+        {
+            RemoveEntity(weapon);
         }
     }
 
     GivePlayerItem(client, classname);
-    FakeClientCommand(client, "use %s", classname);
 }
 
-stock int Mewjam_WeaponSlot(const char[] classname)
+stock int Mewjam_WeaponSlot(StringMap map, const char[] classname)
 {
-    if (StrEqual(classname, MEWJAM_CLASSNAME_WEAPON_SCOUT))
+    static StringMap hWeaponSlots = null;
+    if (hWeaponSlots == null)
     {
-        return 0;
+        hWeaponSlots = map;
     }
 
-    if (StrEqual(classname, MEWJAM_CLASSNAME_WEAPON_GLOCK) || StrEqual(classname, MEWJAM_CLASSNAME_WEAPON_USP))
+    if (hWeaponSlots == null)
     {
-        return 1;
+        return -1;
+    }
+    if (classname[0] == '\0')
+    {
+        return -1;
     }
 
-    if (StrEqual(classname, MEWJAM_CLASSNAME_WEAPON_KNIFE))
+    char szWeaponSlot[8];
+    if (hWeaponSlots.GetString(classname, szWeaponSlot, sizeof(szWeaponSlot)))
     {
-        return 2;
+        return StringToInt(szWeaponSlot);
     }
-
-    if (StrEqual(classname, MEWJAM_CLASSNAME_WEAPON_FLASHBANG))
-    {
-        return 3;
-    }
-
     return -1;
 }

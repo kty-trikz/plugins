@@ -5,3 +5,4 @@
 
 #define MEWJAM_MENU_ITEM_TRUE "Enabled"
 #define MEWJAM_MENU_ITEM_FALSE "Disabled"
+#define MEWJAM_MENU_ITEM_NONE "None"
