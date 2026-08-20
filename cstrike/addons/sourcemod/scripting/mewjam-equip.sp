@@ -91,6 +91,9 @@ public void OnPluginStart()
 
 public void OnClientPutInServer(int client)
 {
+    g_bSilentKnife[client] = false;
+    g_bSilentEquip[client] = false;
+
     Mewjam_InitStateVars(client);
 
     SDKHook(client, SDKHook_PreThinkPost, Hook_PreThinkPost);
@@ -544,9 +547,6 @@ static Action Command_Knife(int client, int argc)
 
 static void Mewjam_InitStateVars(int client)
 {
-    g_bSilentKnife[client] = false;
-    g_bSilentEquip[client] = false;
-
     g_ckPrimaryWeapon.Get(client, g_szPrimaryWeapon[client], sizeof(g_szPrimaryWeapon[]));
     g_ckPistolWeapon.Get(client, g_szPistolWeapon[client], sizeof(g_szPistolWeapon[]));
     g_ckGrenadeWeapon.Get(client, g_szGrenadeWeapon[client], sizeof(g_szGrenadeWeapon[]));
