@@ -314,4 +314,100 @@
         "ru"
         "{1}Вы установили {2}{3} {4}ю/с как скорость ноуклипа"
     }
+
+    "Mewjam / Throw Speed"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}Run: {2}{3}"
+
+        "ru"
+        "{1}Бег: {2}{3}"
+    }
+
+    "Mewjam / Short Throw Speed"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}R: {2}{3}"
+
+        "ru"
+        "{1}Б: {2}{3}"
+    }
+
+    "Mewjam / Crouch Throw Speed"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}Crouch: {2}{3}"
+
+        "ru"
+        "{1}Присяд: {2}{3}"
+    }
+
+    "Mewjam / Short Crouch Throw Speed"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}C: {2}{3}"
+
+        "ru"
+        "{1}П: {2}{3}"
+    }
+
+    "Mewjam / Throw Angle"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}Angle: {2}{3}°"
+
+        "ru"
+        "{1}Угол: {2}{3}°"
+    }
+
+    "Mewjam / Short Throw Angle"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.0f}"
+
+        "en"
+        "{1}A: {2}{3}°"
+
+        "ru"
+        "{1}У: {2}{3}°"
+    }
+
+    "Mewjam / Throw Time"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.2f}"
+
+        "en"
+        "{1}Time: {2}{3}"
+
+        "ru"
+        "{1}Время: {2}{3}"
+    }
+
+    "Mewjam / Short Throw Time"
+    {
+        "#format"
+        "{1:s},{2:s},{3:.2f}"
+
+        "en"
+        "{1}T: {2}{3}"
+
+        "ru"
+        "{1}В: {2}{3}"
+    }
 }
