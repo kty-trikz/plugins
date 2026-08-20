@@ -45,6 +45,10 @@ static Action Hook_RadioText(UserMsg msg, BfRead buff, const int[] players, int 
     char szMessageToken[128];
     buff.ReadString(szMessageToken, sizeof(szMessageToken));
 
+    if (StrEqual(szLocation, MEWJAM_RADIO_TOKEN_FIRE_IN_THE_HOLE))
+    {
+        return Plugin_Handled;
+    }
     if (StrEqual(szMessageToken, MEWJAM_RADIO_TOKEN_FIRE_IN_THE_HOLE))
     {
         return Plugin_Handled;
