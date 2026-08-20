@@ -91,10 +91,10 @@ public void OnPluginStart()
 
 public void OnClientPutInServer(int client)
 {
+    Mewjam_InitStateVars(client);
+
     g_bSilentKnife[client] = false;
     g_bSilentEquip[client] = false;
-
-    Mewjam_InitStateVars(client);
 
     SDKHook(client, SDKHook_PreThinkPost, Hook_PreThinkPost);
     SDKHook(client, SDKHook_WeaponDrop, Hook_WeaponDrop);
