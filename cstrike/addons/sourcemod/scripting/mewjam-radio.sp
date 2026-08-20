@@ -30,7 +30,6 @@ public void OnPluginStart()
 
 static Action Hook_RadioText(UserMsg msg, BfRead buff, const int[] players, int size, bool bReliable, bool bInit)
 {
-
     buff.ReadByte();
     buff.ReadByte();
 
